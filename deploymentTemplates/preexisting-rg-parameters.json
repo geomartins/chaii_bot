@@ -1,0 +1,51 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "appId": {
+            "value": "a554512f-960f-4438-be9f-16045ade1907"
+        },
+        "appSecret": {
+            "value": "@_Sunday50martinsabiodun"
+        },
+        "appType": {
+            "value": "SingleTenant"
+        },
+        "botId": {
+            "value": "chaiiBot"
+        },
+        "botSku": {
+            "value": "F0"
+        },
+        "newAppServicePlanName": {
+            "value": "chaiBotServicePlan"
+        },
+        "newAppServicePlanSku": {
+            "value": {
+                "name": "S1",
+                "tier": "Standard",
+                "size": "S1",
+                "family": "S",
+                "capacity": 1
+            }
+        },
+        "appServicePlanLocation": {
+            "value": "eastus"
+        },
+        "existingAppServicePlan": {
+            "value": "chaiBotServicePlan"
+        },
+        "newWebAppName": {
+            "value": "chaiBotService"
+        },
+        "tenantId": {
+            "value": "d8a59988-a822-481e-9289-fec881d14394"
+        },
+        "existingUserAssignedMSIName": {
+            "value": "chaiBot"
+        },
+        "existingUserAssignedMSIResourceGroupName": {
+            "value": "LavaResourceGroup"
+        }
+    }
+}
