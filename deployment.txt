@@ -1,0 +1,37 @@
+=================================================CHAI-BOT DEPLOYMENT GUIDE =============================================================================================== 
+Step1: Create "Resource Group" in Azure
+
++ Step2: Login to az via powershell
+         >> az login
+
++ Step3: Set the subscription
+       >> az account set --subscription "<azure-subscription-id>"
+
+
++ Step4: Create an azure app registration
+      >> az ad app create --display-name "chaiBot" --password "@_Sunday50martinsabiodun"
+
++ Step 5: Navigate to deploymentTemplates/pre-existing-rg-parameters.json and add all information
+
++ Step6: Navigate to "Deploy via ARM template with existing resource group" >> "Option 2: New App Service Plan"
+  az group deployment create --resource-group "LavaResourceGroup" --template-file "template-with-preexisting-rg.json" --parameters appId="a554512f-960f-4438-be9f-16045ade1907" appSecret="@_Sunday50martinsabiodun" appType="SingleTenant" tenantId="d8a59988-a822-481e-9289-fec881d14394" botId="chaiiBot" newWebAppName="chaiBotService" newAppServicePlanName="chaiBotServicePlan" appServicePlanLocation="eastus" --name "chaiBotService"
+
+
++ Step7: Navigate to .env file and add neccessary configuration
+
++ Step8: Create web.config file in the root of your project
+       >> az bot prepare-deploy --code-dir "." --lang Javascript
+
++ Step9: Zip up the code manually as "app.zip"
+
++ Step10: Deploy the zipped code
+      >> az webapp deployment source config-zip --resource-group "LavaResourceGroup" --name "chaiBotService" --src "./app.zip"
+
++ Step11: Navigate to chaiService and restart the service in azure
+
++ Step12: Navigate to chaiBot and test it
+
+NB: You can get the Tenant ID from "Azure Active Directory"
+NB: Never forget to restart the Azure Service after each deployment
+
+==============================================================================================================================================================================
